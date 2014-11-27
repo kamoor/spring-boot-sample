@@ -26,8 +26,9 @@ mvn clean package && java -jar target/nube-api-idm-1.0-SNAPSHOT.jar –server.po
 Some Help On Spring Boot Configuration:
 ======================================
 Learn basics from http://projects.spring.io/spring-boot/
-
 Look at the Server.java to understand how server is configured to load spring context.
+Added HSQLDB auto configuration also now.
+
 
 Issue Found: 
 ============
