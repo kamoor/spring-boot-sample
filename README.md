@@ -30,12 +30,13 @@ Look at the Server.java to understand how server is configured to load spring co
 Added HSQLDB auto configuration also now.
 
 
-Issue Found: 
+Issues Found: 
 ============
-1.
+
 @EnableAutoConfiguration and @ComponentScan did not really pick all the controllers in all the packages.
 thats the reason I added ImportResource again and defined ComponentScan packages in xml file. 
 
-2. Must keep all resource files under src.main.resources folder. Otherwise maven will not package in to jar file
+
+ Must keep all resource files under src.main.resources folder. Otherwise maven will not package in to jar file
 
 
