@@ -1,5 +1,4 @@
 #Description: Trying to use spring boot module and bring tomcat up and running. 
-#author: kamoor
 
 
 How to Run in Just 3 steps:
@@ -28,6 +27,7 @@ Some Help On Spring Boot Configuration:
 Learn basics from http://projects.spring.io/spring-boot/
 Look at the Server.java to understand how server is configured to load spring context.
 Added HSQLDB auto configuration also now.
+Added Caching for testing purpose. (See cache package to learn)
 
 
 Issues Found: 
