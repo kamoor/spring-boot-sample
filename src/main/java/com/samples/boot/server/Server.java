@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
@@ -25,12 +26,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableAutoConfiguration
 @ComponentScan
 @EnableCaching
-@ImportResource(value = { "classpath:spring/*.xml" })
+@ImportResource(value = { "classpath:spring/*.xml"})
+@PropertySource(ignoreResourceNotFound = true, value = {
+		"classpath:application.properties", "classpath:test.properties","http://localhost/fun/test1.properties"})
 public class Server {
 
 	public static void main(String[] args) {
 		System.out.println("Start Spring Application: nube-api-idm");
 		ApplicationContext ctx = SpringApplication.run(Server.class, args);
+		
 	}
 
 	@Bean

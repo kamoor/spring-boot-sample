@@ -30,13 +30,31 @@ Added HSQLDB auto configuration also now.
 Added Caching for testing purpose. (See cache package to learn)
 
 
-Issues Found: 
-============
 
-@EnableAutoConfiguration and @ComponentScan did not really pick all the controllers in all the packages.
-thats the reason I added ImportResource again and defined ComponentScan packages in xml file. 
+Include static resources
+========================
+
+1. create folder src/main/resources/public. Maven will move public folder to classpath while build.
+2. Add any non-jsp resources in public or sub folders.
+3. Note: You can create any folder like this and map as resource location in spring
+4. Note: JSP will not get executed from this folder
 
 
- Must keep all resource files under src.main.resources folder. Otherwise maven will not package in to jar file
+Include JSP in jar File:
+========================
+1. JSP is a whole different story. Include tomcat-embed-jasper in pom dependency 
+2. Now all the JSP in above (resources/public) folder will give you an error or white page.
+3. To fix this, create folder src/main/resources/META-INF/resources/ then move all jsp in (or sub folders) it. Here I created src/main/resources/META-INF/resources/jsp/helloworld.jsp
+4. Now maven will move these files to /META-INF/.... This is what Servlet 3.0 expect.
+5. Run server and access localhost:8080/jsp/helloworld.jsp
+
+Nows lets try to configure using spring MVC
+6. See JSPController.java, it uses above given helloworld.jsp
+7. You can browse http://localhost:8080/helloworld to see jsp in action
+8. Note: You can also store any resources under META_-INF , for example css, js etc.
+
+
+ 
+
 
 

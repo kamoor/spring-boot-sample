@@ -1,1 +1,5 @@
 target/*
+/subf/*.ex
+/subf/*.txt
+/src/**/subf/*.ex
+

@@ -3,6 +3,7 @@ package com.samples.boot.controllers;
 import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,14 +25,23 @@ public class UserController {
 	static Logger logger = Logger.getLogger(UserController.class);
 	
 	
+	
+	
 	@PostConstruct
 	public void postConstruct() {
-		logger.info("UserController constructed");
+		logger.info("UserController constructed + " + key);
+		
 	}
 	
+	@Value("${external.key}")
+	String key;
+	
+	
+		
+		
 	
 	/**
-	 * Just a test controller to return user object
+	 * Just a test controller to return user object.
 	 * @param userId
 	 * @return
 	 */
@@ -43,7 +53,7 @@ public class UserController {
 		  user.setLastName("Obama");
 		  return user; 
 	}
-	
+
 	
 
 }
