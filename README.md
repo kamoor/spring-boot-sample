@@ -54,7 +54,53 @@ Nows lets try to configure using spring MVC
 8. Note: You can also store any resources under META_-INF , for example css, js etc.
 
 
- 
+A simple performace comparison between Spring Rest vs RMI using spring boot
+===========================================================================
+ See packages  com.samples.rmi.* for RMI implementation
+ See com.samples.boot.controllers.UserForPerfTestController for endpoint. 
+
+ Test Result (Local machine: Macbook Pro 2.7 GHz, 16GB 1600 MHz DDR RAM, OSX Yosemite) is given below: REST WINS!!!
+
+
+RMI based service
+----------------------------
+4 rounds using 5  request, 1000 Request in total :  ab -n1000 -c5 http://localhost:9090/perf/remoting
+
+
+Time per request:       47.482 [ms] (mean)
+Time per request:       9.496 [ms] (mean, across all concurrent requests)
+
+
+Time per request:       39.989 [ms] (mean)
+Time per request:       7.998 [ms] (mean, across all concurrent requests)
+
+
+Time per request:       41.329 [ms] (mean)
+Time per request:       8.266 [ms] (mean, across all concurrent requests)
+
+
+Time per request:       40.811 [ms] (mean)
+Time per request:       8.162 [ms] (mean, across all concurrent requests)
+
+
+
+REST based service 
+-----------------------------
+4 rounds using 5  request, 1000 Request in total : ab -n1000 -c5 http://localhost:9090/perf/rest
+
+
+Time per request:       32.753 [ms] (mean)
+Time per request:       6.551 [ms] (mean, across all concurrent requests)
+
+Time per request:       29.905 [ms] (mean)
+Time per request:       5.981 [ms] (mean, across all concurrent requests)
+
+
+Time per request:       28.916 [ms] (mean)
+Time per request:       5.783 [ms] (mean, across all concurrent requests)
+
+Time per request:       27.966 [ms] (mean)
+Time per request:       5.593 [ms] (mean, across all concurrent requests)
 
 
 
