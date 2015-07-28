@@ -1,4 +1,4 @@
-#Description: Trying to use spring boot module and bring tomcat up and running. 
+#Description: This sample project shows Spring boot 101. Enjoy!
 
 
 How to Run in Just 3 steps:
