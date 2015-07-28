@@ -59,7 +59,9 @@ A simple performace comparison between Spring Rest vs RMI using spring boot
  See packages  com.samples.rmi.* for RMI implementation
  See com.samples.boot.controllers.UserForPerfTestController for endpoint. 
 
- Test Result (Local machine: Macbook Pro 2.7 GHz, 16GB 1600 MHz DDR RAM, OSX Yosemite) is given below: REST WINS!!!
+ Test Result from Macbook Pro 2.7 GHz, 16GB 1600 MHz DDR RAM, OSX Yosemite, JDK 1.8 is given below
+
+ REST WINS!!!
 
 
 RMI based service
