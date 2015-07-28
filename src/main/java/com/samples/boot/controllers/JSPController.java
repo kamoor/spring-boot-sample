@@ -37,9 +37,9 @@ public class JSPController {
 	 * @return
 	 */
 	
-	@RequestMapping("/helloworld")
+	@RequestMapping("/helloworld1")
 	public ModelAndView defaultAdminRequest(final HttpServletRequest request) {
-		logger.info("helloworld request");
+		logger.info("helloworld1 request");
 		return  new ModelAndView("helloworld");
 	}
 	

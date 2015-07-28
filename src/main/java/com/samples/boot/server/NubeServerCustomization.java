@@ -1,10 +1,12 @@
 package com.samples.boot.server;
 
+import org.apache.catalina.connector.Connector;
+import org.apache.coyote.http11.Http11NioProtocol;
 import org.apache.log4j.Logger;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.ErrorPage;
-import org.springframework.http.HttpStatus;
+import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 
 /**
  * customize any server configuration
@@ -14,20 +16,20 @@ public class NubeServerCustomization extends ServerProperties {
 
 	static Logger logger = Logger.getLogger(NubeServerCustomization.class);
 
-	/**
-	 * This will override any properties loaded by application.properties. Be
-	 * careful about this one
-	 */
 	@Override
 	public void customize(ConfigurableEmbeddedServletContainer container) {
-
 		super.customize(container);
-		container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND,
-				"/jsp/404.jsp"));
-		container.addErrorPages(new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR,
-				"/jsp/500.jsp"));
-		container.addErrorPages(new ErrorPage("/jsp/error.jsp"));
-		logger.info("Server customized.");
+		TomcatEmbeddedServletContainerFactory containerFactory = (TomcatEmbeddedServletContainerFactory) container;
+        containerFactory.addConnectorCustomizers(new TomcatConnectorCustomizer() {
+            @Override
+            public void customize(Connector connector) {
+            	connector.setProperty("compression","on");
+            	connector.setProperty("compressableMimeTypes", "application/json,application/xml");
+            }
+        });
 	}
+	
+	
+
 
 }

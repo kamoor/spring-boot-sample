@@ -24,14 +24,12 @@ public class ResourceRefresher {
 	@Autowired
 	ConfigurableApplicationContext context;
 	
-	@Value("${external.key}")
-	String key;
+	
 
-	@Scheduled(fixedRate = 60000)
+	@Scheduled(fixedRate = 600000)
 	public void scheduled(){
 		
-		
-		logger.info("sample scheduler test,  properties " +key);
+		//logger.info("sample scheduler test,  properties ");
 	}
 	
 	

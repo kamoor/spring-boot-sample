@@ -27,8 +27,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan
 @EnableCaching
 @ImportResource(value = { "classpath:spring/*.xml"})
+//@PropertySource(ignoreResourceNotFound = true, value = {
+//		"classpath:application.properties",
+//		"classpath:test.properties","http://localhost/fun/test1.properties"
+//		})
 @PropertySource(ignoreResourceNotFound = true, value = {
-		"classpath:application.properties", "classpath:test.properties","http://localhost/fun/test1.properties"})
+		"classpath:application.properties"
+})
 public class Server {
 
 	public static void main(String[] args) {
