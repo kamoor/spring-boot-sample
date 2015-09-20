@@ -21,6 +21,7 @@
 		<spring.boot.version>1.2.5.RELEASE</spring.boot.version>
 		<spring.remote.version>2.0.8</spring.remote.version>
 		<start-class>com.samples.boot.server.Server</start-class>
+		<zookeeper.version>3.4.6</zookeeper.version>
 	</properties>
 
 
@@ -66,6 +67,13 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+		<!-- Zookeeper dependencies -->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>${zookeeper.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>

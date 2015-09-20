@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.samples.boot.props.Properties;
 import com.samples.boot.vo.User;
 
 
@@ -54,7 +55,7 @@ public class UserController {
 		 // logger.debug("Get User by ID");
 		  
 		  List<User> users = new ArrayList<User>();
-		  for(int i=0;i<10000;i++){
+		  for(int i=0;i<Properties.getInstance().getInt("max_limit");i++){
 			  User user = new User();
 				user.setFirstName(String.valueOf(i * 145));
 				user.setLastName(String.valueOf(i * 300));

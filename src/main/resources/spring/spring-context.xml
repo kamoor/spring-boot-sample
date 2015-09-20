@@ -42,17 +42,5 @@
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
 
-	<!-- RMI Server Test -->
-	<bean id="rmiServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter" >
-		<property name="serviceName" value="UserService" />
-		<property name="service" ref="remoteUserServiceImpl" />
-		<property name="serviceInterface" value="com.samples.rmi.RemoteUserService" />
-		<property name="registryPort" value="1199" />
-	</bean>
 
-	<!-- Remoting client test -->
-	<bean id="userServiceClient" class="org.springframework.remoting.rmi.RmiProxyFactoryBean" depends-on="rmiServiceExporter">
-		<property name="serviceUrl" value="rmi://127.0.0.1:1199/UserService" />
-		<property name="serviceInterface" value="com.samples.rmi.RemoteUserService" />
-	</bean>
 </beans>

@@ -3,3 +3,4 @@ target/*
 /subf/*.txt
 /src/**/subf/*.ex
 
+/target/
