@@ -1,3 +1,4 @@
+.settings/*
 target/*
 /subf/*.ex
 /subf/*.txt

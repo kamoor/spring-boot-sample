@@ -34,7 +34,7 @@ public class ZookeeperConfig {
 
 		});
 		// Read watcher, make sure these nodes exists before starting
-		zk.getData("/zk_test", new EventWatch("/zk_test", "zk_test", true), null);
+		// zk.getData("/zk_test", new EventWatch("/zk_test", "zk_test", true), null);
 		zk.getData("/max_limit", new EventWatch("/max_limit", "max_limit", true), null);
 	}
 
